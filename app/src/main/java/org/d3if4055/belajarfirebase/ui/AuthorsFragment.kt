@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_authors.*
 
 import org.d3if4055.belajarfirebase.R
@@ -52,7 +53,7 @@ class AuthorsFragment : Fragment(),
 
         viewModel.authors.observe(viewLifecycleOwner, Observer {
             adapter.setAuthors(it)
-            Toast.makeText(requireContext(), "author fetched!", Toast.LENGTH_SHORT).show()
+            Snackbar.make(this.requireView(), "Author fetched!", Snackbar.LENGTH_SHORT).show()
         })
 
         viewModel.author.observe(viewLifecycleOwner, Observer {
