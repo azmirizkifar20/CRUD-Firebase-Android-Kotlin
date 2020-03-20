@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/authorsFragment">
+
+    <fragment
+        android:id="@+id/authorsFragment"
+        android:name="org.d3if4055.belajarfirebase.ui.AuthorsFragment"
+        android:label="fragment_authors"
+        tools:layout="@layout/fragment_authors" />
+    <fragment
+        android:id="@+id/addAuthorDialogFragment"
+        android:name="org.d3if4055.belajarfirebase.ui.AddAuthorDialogFragment"
+        android:label="fragment_add_author_dialog"
+        tools:layout="@layout/dialog_fragment_add_author" />
+</navigation>

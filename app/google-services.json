@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "961848978818",
+    "firebase_url": "https://bakers-corner-apps.firebaseio.com",
+    "project_id": "bakers-corner-apps",
+    "storage_bucket": "bakers-corner-apps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:961848978818:android:b87cd24eaede61a00b739b",
+        "android_client_info": {
+          "package_name": "org.d3if4055.belajarfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "961848978818-8osc0gcqvn6rcid8ru4hck2lsud2airf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmqtkeCuglrokJ0WzfuNHmuzVljw2XfZw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "961848978818-8osc0gcqvn6rcid8ru4hck2lsud2airf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
