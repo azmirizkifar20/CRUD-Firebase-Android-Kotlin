@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_authors" />
     <fragment
         android:id="@+id/addAuthorDialogFragment"
-        android:name="org.d3if4055.belajarfirebase.ui.AddAuthorDialogFragment"
+        android:name="org.d3if4055.belajarfirebase.dialog.AddAuthorDialogFragment"
         android:label="fragment_add_author_dialog"
         tools:layout="@layout/dialog_fragment_add_author" />
 </navigation>

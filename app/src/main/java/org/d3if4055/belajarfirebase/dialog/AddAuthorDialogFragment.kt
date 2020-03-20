@@ -1,4 +1,4 @@
-package org.d3if4055.belajarfirebase.ui
+package org.d3if4055.belajarfirebase.dialog
 
 import android.os.Build
 import android.os.Bundle
@@ -10,12 +10,13 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import kotlinx.android.synthetic.main.dialog_fragment_edit_author.*
+import kotlinx.android.synthetic.main.dialog_fragment_add_author.*
 
 import org.d3if4055.belajarfirebase.R
 import org.d3if4055.belajarfirebase.data.Author
+import org.d3if4055.belajarfirebase.viewmodel.AuthorsViewModel
 
-class EditAuthorDialogFragment(private val author: Author) : DialogFragment() {
+class AddAuthorDialogFragment : DialogFragment() {
 
     private lateinit var viewModel: AuthorsViewModel
 
@@ -26,26 +27,23 @@ class EditAuthorDialogFragment(private val author: Author) : DialogFragment() {
     ): View? {
         // mendapatkan viewmodel dari class AuthorViewModels
         viewModel = ViewModelProviders.of(this).get(AuthorsViewModel::class.java)
-
-        return inflater.inflate(R.layout.dialog_fragment_edit_author, container, false)
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.dialog_fragment_add_author, container, false)
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // styling pop up add author
         setStyle(STYLE_NO_TITLE, android.R.style.Theme_Material_Light_Dialog_MinWidth)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        et_name.setText(author.name)
-
         // define result on button add author clicked
         viewModel.result.observe(viewLifecycleOwner, Observer {
             val message = if (it == null) {
-                getString(R.string.author_updated)
+                getString(R.string.author_added)
             } else {
                 getString(R.string.error, it.message)
             }
@@ -55,7 +53,7 @@ class EditAuthorDialogFragment(private val author: Author) : DialogFragment() {
         })
 
         // on click
-        btn_edit_author.setOnClickListener {
+        btn_add_author.setOnClickListener {
             val name = et_name.text.toString().trim()
 
             if (name.isEmpty()) {
@@ -63,8 +61,9 @@ class EditAuthorDialogFragment(private val author: Author) : DialogFragment() {
                 return@setOnClickListener
             }
 
+            val author = Author()
             author.name = name
-            viewModel.updateAuthor(author)
+            viewModel.addAuthor(author)
         }
     }
 

@@ -13,11 +13,18 @@ import kotlinx.android.synthetic.main.fragment_authors.*
 
 import org.d3if4055.belajarfirebase.R
 import org.d3if4055.belajarfirebase.data.Author
+import org.d3if4055.belajarfirebase.dialog.AddAuthorDialogFragment
+import org.d3if4055.belajarfirebase.dialog.EditAuthorDialogFragment
+import org.d3if4055.belajarfirebase.recyclerview.AuthorsAdapter
+import org.d3if4055.belajarfirebase.recyclerview.RecyclerViewClickListener
+import org.d3if4055.belajarfirebase.viewmodel.AuthorsViewModel
 
-class AuthorsFragment : Fragment(), RecyclerViewClickListener {
+class AuthorsFragment : Fragment(),
+    RecyclerViewClickListener {
     // buat view model reference ke AuthorsViewModel
     private lateinit var viewModel: AuthorsViewModel
-    private val adapter = AuthorsAdapter()
+    private val adapter =
+        AuthorsAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,14 +61,17 @@ class AuthorsFragment : Fragment(), RecyclerViewClickListener {
 
         // event ketika tombol add di klik
         btn_add.setOnClickListener {
-            AddAuthorDialogFragment().show(childFragmentManager,"")
+            AddAuthorDialogFragment()
+                .show(childFragmentManager,"")
         }
     }
 
     override fun onRecyclerViewItemClicked(view: View, author: Author) {
         when (view.id) {
             R.id.button_edit -> {
-                EditAuthorDialogFragment(author).show(childFragmentManager, "")
+                EditAuthorDialogFragment(
+                    author
+                ).show(childFragmentManager, "")
             }
             R.id.button_delete -> {
                 AlertDialog.Builder(requireContext()).also {

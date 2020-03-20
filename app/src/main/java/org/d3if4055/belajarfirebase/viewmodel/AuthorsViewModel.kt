@@ -1,6 +1,5 @@
-package org.d3if4055.belajarfirebase.ui
+package org.d3if4055.belajarfirebase.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -105,6 +104,7 @@ class AuthorsViewModel : ViewModel() {
         }
     }
 
+    // fungsi delete
     fun deleteAuthor(author: Author) {
         dbAuthors.child(author.id!!).setValue(null).addOnCompleteListener {
             if(it.isSuccessful) {
